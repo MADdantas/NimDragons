@@ -1,0 +1,27 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Nim Dragons"
+config/name_localized={
+"pt_BR": "Dragões Nim"
+}
+config/features=PackedStringArray("4.1", "GL Compatibility")
+config/icon="res://images/dragon.png"
+
+[internationalization]
+
+locale/locale_filter_mode=1
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
