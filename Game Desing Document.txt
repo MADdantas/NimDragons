@@ -1,0 +1,25 @@
+Game Desing Document
+
+Missing:
+Sound design
+ x background music
+ x boing sound when jump
+ x landing sound
+
+Coin
+ - It's the win condition
+ - unlock next skin for player
+ - ends game when there's no more skins
+
+Save
+ - auto save every time it lands
+ - save when player gets coin
+
+Skin mechanic
+ - change skin on menu
+ - set diferent jum height for each skin
+
+Levels
+ x Only one big vertical map
+ x When player go out the camera view it will go up or down following the player (This is called a level)
+ - One or 2 levels without walls (If player fall of the map it will die)

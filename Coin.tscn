@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://vmatrkxdycvr"]
+
+[ext_resource type="Script" path="res://Coin.gd" id="1_fxdlo"]
+[ext_resource type="Texture2D" uid="uid://cawncrbv47gvd" path="res://assets/Images/coin.png" id="1_wrwgv"]
+[ext_resource type="AudioStream" uid="uid://c4tnerlqk320c" path="res://assets/Sounds/coin.wav" id="2_owh7t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lhhdi"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc80a"]
+atlas = ExtResource("1_wrwgv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2csec"]
+atlas = ExtResource("1_wrwgv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmsp3"]
+atlas = ExtResource("1_wrwgv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6x3j"]
+atlas = ExtResource("1_wrwgv")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63f3h"]
+atlas = ExtResource("1_wrwgv")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p44c"]
+atlas = ExtResource("1_wrwgv")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg33"]
+atlas = ExtResource("1_wrwgv")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsgqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc80a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2csec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmsp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6x3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63f3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p44c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg33")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Coin" type="Area2D"]
+scale = Vector2(3, 3)
+collision_layer = 8
+script = ExtResource("1_fxdlo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lhhdi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_wsgqt")
+autoplay = "default"
+frame_progress = 0.955841
+
+[node name="CoinSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_owh7t")
+volume_db = 1.879
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

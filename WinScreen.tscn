@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://cck06tk3ihrbe"]
+
+[ext_resource type="Script" path="res://WinScreen.gd" id="1_1l5kl"]
+[ext_resource type="Texture2D" uid="uid://dd0iic4lo5nac" path="res://assets/Images/Clouds/Clouds 3/1.png" id="1_t5wrx"]
+[ext_resource type="Texture2D" uid="uid://jcy3rjtilugl" path="res://assets/Images/Clouds/Clouds 3/2.png" id="2_vltwb"]
+[ext_resource type="Texture2D" uid="uid://1sjjxagc8ao0" path="res://assets/Images/Clouds/Clouds 3/3.png" id="3_o66o6"]
+[ext_resource type="Texture2D" uid="uid://cpl5sw1hux8i2" path="res://assets/Images/Clouds/Clouds 3/4.png" id="4_rcwni"]
+[ext_resource type="Texture2D" uid="uid://0u4xmybc1ume" path="res://assets/Images/crown.png" id="5_spoa8"]
+[ext_resource type="AudioStream" uid="uid://qiy1b0hfsnmm" path="res://assets/Sounds/POL-frozen-village-short.wav" id="6_strrp"]
+[ext_resource type="Texture2D" uid="uid://bb1g2vu2ualol" path="res://assets/Images/YOU WIN!.png" id="6_x1w7n"]
+[ext_resource type="Texture2D" uid="uid://fiajh3j33o4l" path="res://assets/Images/UI/3.png" id="8_75ukw"]
+[ext_resource type="Texture2D" uid="uid://d1syprthwmxxw" path="res://assets/Images/UI/4.png" id="9_ejuup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcxfq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hf83v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nvwvb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6k8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teox8"]
+
+[node name="WinScreen" type="Node2D"]
+script = ExtResource("1_1l5kl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(2, 2)
+texture = ExtResource("1_t5wrx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("2_vltwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D"]
+texture = ExtResource("3_o66o6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D/Sprite2D"]
+texture = ExtResource("4_rcwni")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D/Sprite2D/Sprite2D"]
+texture_filter = 1
+position = Vector2(0, -58.995)
+scale = Vector2(3.515, 3.515)
+texture = ExtResource("5_spoa8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("6_x1w7n")
+
+[node name="QuitButton" type="Button" parent="Sprite2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -252.0
+offset_top = -230.5
+offset_right = 771.0
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.08, 0.08)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rcxfq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hf83v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nvwvb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u6k8e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_teox8")
+icon = ExtResource("8_75ukw")
+icon_alignment = 1
+
+[node name="Menu" type="Button" parent="Sprite2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -418.0
+offset_top = -229.0
+offset_right = 605.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.08, 0.08)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rcxfq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hf83v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nvwvb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u6k8e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_teox8")
+icon = ExtResource("9_ejuup")
+icon_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_strrp")
+volume_db = -10.178
+
+[connection signal="pressed" from="Sprite2D/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Sprite2D/Menu" to="." method="_on_menu_pressed"]

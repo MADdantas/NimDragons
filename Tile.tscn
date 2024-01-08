@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cju0k6okqybk8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8e4t3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmv31"]
+size = Vector2(225, 225)
+
+[node name="tile" type="Sprite2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+physics_material_override = SubResource("PhysicsMaterial_8e4t3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 0.500002)
+shape = SubResource("RectangleShape2D_cmv31")

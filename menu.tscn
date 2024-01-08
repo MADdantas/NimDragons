@@ -1,0 +1,105 @@
+[gd_scene load_steps=20 format=3 uid="uid://fog035edv257"]
+
+[ext_resource type="Texture2D" uid="uid://m20nvdl5bkkm" path="res://assets/Images/UI/Menu.png" id="1_mkdc1"]
+[ext_resource type="Script" path="res://menu.gd" id="1_wl4jn"]
+[ext_resource type="Texture2D" uid="uid://cd7xkrur4agj7" path="res://assets/Images/UI/2.png" id="2_6c8cv"]
+[ext_resource type="Texture2D" uid="uid://fiajh3j33o4l" path="res://assets/Images/UI/3.png" id="3_wd0nu"]
+[ext_resource type="FontFile" uid="uid://c6lrtd13q6c" path="res://assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="5_invnq"]
+[ext_resource type="Texture2D" uid="uid://b8kl488yuicxs" path="res://assets/Images/UI/6.png" id="6_hqfdf"]
+[ext_resource type="Texture2D" uid="uid://dcgflvv7ts7e1" path="res://assets/Images/UI/7.png" id="7_jyrs8"]
+[ext_resource type="AudioStream" uid="uid://qiy1b0hfsnmm" path="res://assets/Sounds/POL-frozen-village-short.wav" id="8_ljls7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sha0r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43gek"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsk7j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmtg3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1fvq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tkqwp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkey2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dal5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5jigl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nyjod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4fm8"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_wl4jn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("1_mkdc1")
+offset = Vector2(579, 324)
+
+[node name="StartButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -42.0
+offset_right = 890.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.27, 0.27)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sha0r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_43gek")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hsk7j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pmtg3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s1fvq")
+icon = ExtResource("2_6c8cv")
+icon_alignment = 1
+
+[node name="QuitButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = 112.0
+offset_right = 891.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.27, 0.27)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tkqwp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pkey2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0dal5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5jigl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nyjod")
+icon = ExtResource("3_wd0nu")
+icon_alignment = 1
+
+[node name="SoundToggle" type="CheckButton" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 28.0
+offset_top = 17.0
+offset_right = 1943.0
+offset_bottom = 512.0
+scale = Vector2(0.06, 0.06)
+theme_override_fonts/font = ExtResource("5_invnq")
+theme_override_font_sizes/font_size = 300
+theme_override_icons/checked = ExtResource("6_hqfdf")
+theme_override_icons/unchecked = ExtResource("7_jyrs8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x4fm8")
+button_pressed = true
+text = "Music "
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ljls7")
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/SoundToggle" to="." method="_on_check_button_toggled"]
