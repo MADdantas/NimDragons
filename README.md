@@ -1,7 +1,8 @@
 # Bouncing Slime
 This is the fist godot game I did from January 5 to January 7, 2024 as a solo game jam.
 
-Download Windows version [here](https://drive.google.com/file/d/1ZjWQ9nJMM9-UmnOyGH5iUZbzWYAPuLi8/view?usp=sharing).
+Download Windows version [here](/WindowsBuild).
+
 Download Android version [here](/AndroidBuild).
 
 Here are some images of the final result:
