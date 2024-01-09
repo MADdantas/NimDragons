@@ -411,6 +411,6 @@ position = Vector2(104, 436)
 scale = Vector2(0.3, 0.3)
 
 [node name="Coin" parent="." instance=ExtResource("22_lkp4a")]
-position = Vector2(453, 31)
+position = Vector2(580, 372)
 
 [connection signal="finished" from="BackgroungSfx" to="." method="_on_backgroung_sfx_finished"]

@@ -1,7 +1,5 @@
 extends Node2D
 
-
-var started = false
 @onready var sound = $Music
 
 # Called when the node enters the scene tree for the first time.
@@ -11,9 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if started:
-		free()
+#func _process(_delta):
 
 
 func _on_quit_button_pressed():
@@ -25,11 +21,7 @@ func _notification(what):
 
 
 func _on_start_button_pressed():
-	var next_level_resource = load("res://MainLevel.tscn")
-	var next_level = next_level_resource.instantiate()
-	
-	get_parent().add_child(next_level)
-	started = true
+	get_tree().change_scene_to_file("res://MainLevel.tscn")
 
 
 func _on_check_button_toggled(toggled_on):

@@ -4,11 +4,13 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var jumpSound = $JumpSfx
 @onready var landSound = $LandSfx
+@onready var arrow = $Line2D/Arrow
 
 const MAX_FORCE = 600
 const MIN_FORCE = 80
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const SENSIBILITY = 4
 
 var impulse = Vector2.ZERO
 var lastVel = Vector2.ZERO
@@ -67,17 +69,22 @@ func _physics_process(delta):
 		
 		# Handle jump
 		if is_on_floor() and isAddingForce and isNotMoving:
-			impulse = (mouseClickPos - mousePosition) * 8
+			impulse = (mouseClickPos - mousePosition) * SENSIBILITY
 			# Limit impulse
 			if impulse.length() > MAX_FORCE:
 				impulse = impulse.normalized() * MAX_FORCE
 			if impulse.length() < MIN_FORCE:
 				impulse = Vector2.ZERO
+			
 			# Draw arrow
 			line.clear_points()
 			line.add_point(Vector2.ZERO)
 			line.add_point(impulse/2)
 			line.show()
+			arrow.visible = true
+			arrow.position = line.get_point_position(1)
+			if !arrow.position == Vector2.ZERO:
+				arrow.rotation = line.get_point_position(1).angle() + PI/2
 		
 		if Input.is_action_just_released("select") and is_on_floor() and isAddingForce:
 			_animated_sprite.play("jump_start")

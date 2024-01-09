@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var music = $Music
-var backToMenu = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,9 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if backToMenu:
-		free()
+#func _process(_delta):
 
 
 func _on_quit_button_pressed():
@@ -24,10 +21,4 @@ func _on_menu_pressed():
 	Global.gotCoin = false
 	Global.soundOn = true
 	
-	var next_level_resource = load("res://menu.tscn")
-	var next_level = next_level_resource.instantiate()
-	
-	get_parent().add_child(next_level)
-	
-	backToMenu = true
-	
+	get_tree().change_scene_to_file("res://menu.tscn")

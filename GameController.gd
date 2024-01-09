@@ -6,16 +6,8 @@ extends Node2D
 	
 func displayWin(win):
 	if win:
-		var level = $MainLevel
-		# Remove the current level
-		remove_child(level)
-		level.call_deferred("free")
-
-		# Add the next level
-		var next_level_resource = load("res://WinScreen.tscn")
-		var next_level = next_level_resource.instantiate()
-		add_child(next_level)
 		Global.playerWin = false
+		get_tree().change_scene_to_file("res://WinScreen.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

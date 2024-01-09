@@ -14,18 +14,18 @@ config/name="Boucing Slime"
 config/name_localized={
 "pt_BR": "Dragões Nim"
 }
-run/main_scene="res://game_controller.tscn"
+run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://assets/Images/icon.png"
 
 [autoload]
 
 Global="*res://global.gd"
+GameController="*res://GameController.gd"
 
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [input]
 

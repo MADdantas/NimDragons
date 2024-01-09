@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dkji21sp2o5wd"]
+[gd_scene load_steps=38 format=3 uid="uid://dkji21sp2o5wd"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rbhvi"]
 [ext_resource type="Texture2D" uid="uid://d12i4eb78pist" path="res://assets/Images/Slime Enemy/Jump/Sprite Sheet - Blue Jump Up.png" id="3_2aqux"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dpnjlcvtmox3a" path="res://assets/Images/Slime Enemy/Jump/Sprite Sheet - Blue Jump Start-up.png" id="6_uj2y4"]
 [ext_resource type="AudioStream" uid="uid://cji041pgi0orh" path="res://assets/Sounds/jump.wav" id="7_lynwt"]
 [ext_resource type="AudioStream" uid="uid://b6x0hmrwenkhn" path="res://assets/Sounds/land.wav" id="8_2qdks"]
+[ext_resource type="Texture2D" uid="uid://c1xrlec7mepoe" path="res://assets/Images/arrow.png" id="9_8btvc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyhcw"]
 size = Vector2(65, 77)
@@ -244,10 +245,17 @@ shape = SubResource("RectangleShape2D_pyhcw")
 [node name="Line2D" type="Line2D" parent="."]
 z_index = 1
 texture_filter = 1
-width = 20.0
-default_color = Color(0, 0.921569, 0, 1)
-texture_mode = 1
-antialiased = true
+width = 36.0
+default_color = Color(0.913725, 0.027451, 0.0313726, 1)
+begin_cap_mode = 2
+
+[node name="Arrow" type="Sprite2D" parent="Line2D"]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("9_8btvc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
