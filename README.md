@@ -2,7 +2,7 @@
 This is the fist godot game I did from January 5 to January 7, 2024 as a solo game jam.
 
 Download Windows version [here](https://drive.google.com/file/d/1ZjWQ9nJMM9-UmnOyGH5iUZbzWYAPuLi8/view?usp=sharing).
-Download Android version [here](/Android build)
+Download Android version [here](./Android build).
 
 Here are some images of the final result:
 ![image](https://github.com/MADdantas/bouncing_slime/assets/24358380/e580c367-ecd3-4890-9763-d5e7c05da181)
