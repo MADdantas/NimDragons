@@ -1,6 +1,10 @@
 # Bouncing Slime
 This is the fist godot game I did from January 5 to January 7, 2024 as a solo game jam.
 
+You can play it [here](https://maddantas.itch.io/bouncing-slime)
+
+Or download it:
+
 Download Windows version [here](/WindowsBuild).
 
 Download Android version [here](/AndroidBuild).
