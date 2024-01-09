@@ -28,11 +28,7 @@ func _on_start_button_pressed():
 	var next_level_resource = load("res://MainLevel.tscn")
 	var next_level = next_level_resource.instantiate()
 	
-	var coin_resource = load("res://Coin.tscn")
-	var coin = coin_resource.instantiate()
-	
 	get_parent().add_child(next_level)
-	get_parent().get_child(1).add_child(coin)
 	started = true
 
 

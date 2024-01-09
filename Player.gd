@@ -13,18 +13,14 @@ const JUMP_VELOCITY = -400.0
 var impulse = Vector2.ZERO
 var lastVel = Vector2.ZERO
 var lineDirection = Vector2.ZERO
+var mouseClickPos = Vector2.ZERO
 
-var isHovering = false
+#var isHovering = false
 var isAddingForce = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _mouse_enter():
-	isHovering = true
-
-func _mouse_exit():
-	isHovering = false
 
 func _physics_process(delta):
 	# Get mouse position
@@ -64,13 +60,14 @@ func _physics_process(delta):
 		if !_animated_sprite.is_playing():
 			_animated_sprite.play("idle")
 	if !Global.gotCoin:
-		if Input.is_action_pressed("select") and isHovering and isNotMoving:
+		if Input.is_action_pressed("select") and isNotMoving and !isAddingForce:
+			mouseClickPos = mousePosition
 			isAddingForce = true
 			_animated_sprite.play("getting_impulse")
 		
 		# Handle jump
 		if is_on_floor() and isAddingForce and isNotMoving:
-			impulse = (get_global_transform().get_origin() - mousePosition) * 8
+			impulse = (mouseClickPos - mousePosition) * 8
 			# Limit impulse
 			if impulse.length() > MAX_FORCE:
 				impulse = impulse.normalized() * MAX_FORCE
